@@ -12,8 +12,8 @@ then
 fi
 
 hostname
-ls -ahl "$PREP_FILE"
 ls -ahl
+cat "$PREP_FILE"
 echo "Pretend we're doing a deploy here."
 
 echo "$MY_ENV"

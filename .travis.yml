@@ -1,4 +1,6 @@
 
+language: generic
+
 env:
     - MY_ENV=foo
     - MY_ENV=bar
@@ -12,7 +14,7 @@ script:
     - ./travis-script.sh
 
 before_deploy:
-    - hostname > deploy-preparation.txt
+    - hostname | tee deploy-preparation.txt
 
 deploy:
     - provider: script
