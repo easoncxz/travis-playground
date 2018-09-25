@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 set -e  # fail fast
-set -o  # be noisy
+set -x  # echo on
 
 uname -a
 hostname
