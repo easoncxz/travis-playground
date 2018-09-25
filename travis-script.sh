@@ -7,3 +7,5 @@ uname -a
 hostname
 whoami
 pwd
+
+echo "$MY_ENV"
