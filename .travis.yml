@@ -1,0 +1,8 @@
+
+install:
+    - echo "Travis install step here."
+    - ./travis-script.sh
+
+script:
+    - echo "Travis script step here."
+    - ./travis-script.sh
