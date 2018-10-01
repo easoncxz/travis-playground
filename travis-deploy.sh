@@ -11,6 +11,7 @@ then
     exit 1
 fi
 
+pwd
 hostname
 ls -ahl
 cat "$PREP_FILE"
