@@ -20,3 +20,4 @@ before_deploy:
 deploy:
     provider: script
     script: ./travis-deploy.sh deploy-preparation.txt
+    skip_cleanup: true
