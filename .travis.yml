@@ -9,12 +9,10 @@ matrix:
     include:
         - os: linux
           sudo: false
-          env:
-              - MY_ENV=linux_env
+          env: MY_ENV=linux_env
         - os: osx
           osx_image: xcode10
-          env:
-              - MY_ENV=osx_env
+          env: MY_ENV=osx_env
 
 install:
     - echo "Travis install step here."
