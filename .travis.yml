@@ -4,25 +4,38 @@ language: minimal
 jobs:
     include:
         - stage: test
-          os:
-              - linux
-              - osx
-          env:
-              - MY_ENV=foo
-              - MY_ENV=bar
+          os: linux
+          sudo: false
+          env: MY_ENV=linux_env
 
           install:
               - echo "Travis install step here."
               - ./travis-script.sh
-
           script:
               - echo "Travis script step here."
               - ./travis-script.sh
-
           before_deploy:
               - hostname
               - pwd
+          deploy:
+            provider: script
+            script: hostname && pwd
+            skip_cleanup: true
 
+        - stage: test
+          os: osx
+          osx_image: xcode10
+          env: MY_ENV=osx_env
+
+          install:
+              - echo "Travis install step here."
+              - ./travis-script.sh
+          script:
+              - echo "Travis script step here."
+              - ./travis-script.sh
+          before_deploy:
+              - hostname
+              - pwd
           deploy:
             provider: script
             script: hostname && pwd
