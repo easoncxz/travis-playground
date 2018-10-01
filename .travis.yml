@@ -5,19 +5,21 @@ env:
     - MY_ENV=foo
     - MY_ENV=bar
 
-install:
-    - echo "Travis install step here."
-    - ./travis-script.sh
-
-script:
-    - echo "Travis script step here."
-    - ./travis-script.sh
-
-before_deploy:
-    - pwd
-    - hostname | tee deploy-preparation.txt
-
-deploy:
-    provider: script
-    script: ./travis-deploy.sh deploy-preparation.txt
-    skip_cleanup: true
+jobs:
+    include:
+        - stage: "Tests here!"
+          install:
+            - echo "Travis install step here."
+            - ./travis-script.sh
+          script:
+            - echo "Travis script step here."
+            - ./travis-script.sh
+        - stage: "Now deploy!"
+          script: true
+          before_deploy:
+              - pwd
+              - hostname | tee deploy-preparation.txt
+          deploy:
+              provider: script
+              script: ./travis-deploy.sh deploy-preparation.txt
+              skip_cleanup: true
