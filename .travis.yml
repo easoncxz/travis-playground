@@ -5,6 +5,11 @@ env:
     - MY_ENV=foo
     - MY_ENV=bar
 
+matrix:
+    include:
+        - os: linux
+        - os: osx
+
 install:
     - echo "Travis install step here."
     - ./travis-script.sh
