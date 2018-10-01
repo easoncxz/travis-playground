@@ -5,14 +5,18 @@ language: minimal
 #     - MY_ENV=foo
 #     - MY_ENV=bar
 
-matrix:
-    include:
-        - os: linux
-          sudo: false
-          env: MY_ENV=linux_env
-        - os: osx
-          osx_image: xcode10
-          env: MY_ENV=osx_env
+# matrix:
+#     include:
+#         - os: linux
+#           sudo: false
+#           env: MY_ENV=linux_env
+#         - os: osx
+#           osx_image: xcode10
+#           env: MY_ENV=osx_env
+
+os:
+    - linux
+    - osx
 
 install:
     - echo "Travis install step here."
@@ -23,23 +27,11 @@ script:
     - ./travis-script.sh
 
 before_deploy:
+    - echo "before_deploy here"
     - hostname
     - pwd
 
 deploy:
   provider: script
-  script: hostname && pwd
+  script: hostname && pwd && echo "deploy step here"
   skip_cleanup: true
-
-jobs:
-    include:
-        - stage: "Now deploy!"
-          env: MY_ENV=deploying
-          script: hostname && pwd
-          before_deploy:
-              - pwd
-              - hostname | tee deploy-preparation.txt
-          deploy:
-              provider: script
-              script: ./travis-deploy.sh deploy-preparation.txt
-              skip_cleanup: true
