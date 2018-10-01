@@ -25,7 +25,10 @@ deploy:
 jobs:
     include:
         - stage: "Now deploy!"
-          env: MY_ENV=deploying
+          env:
+              - MY_ENV="deploying 1"
+              - MY_ENV="deploying 2"
+          install: echo "Nothing to install"
           script: hostname && pwd
           before_deploy:
               - pwd
