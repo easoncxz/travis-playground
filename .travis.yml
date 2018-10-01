@@ -5,15 +5,15 @@ env:
     - MY_ENV=foo
     - MY_ENV=bar
 
+install:
+- echo "Travis install step here."
+- ./travis-script.sh
+script:
+- echo "Travis script step here."
+- ./travis-script.sh
+
 jobs:
     include:
-        - stage: "test"
-          install:
-            - echo "Travis install step here."
-            - ./travis-script.sh
-          script:
-            - echo "Travis script step here."
-            - ./travis-script.sh
         - stage: "Now deploy!"
           script: hostname && pwd
           before_deploy:
