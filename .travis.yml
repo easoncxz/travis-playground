@@ -1,6 +1,21 @@
 
 language: minimal
 
+install:
+    - echo "Travis install step here."
+    - ./travis-script.sh
+script:
+    - echo "Travis script step here."
+    - ./travis-script.sh
+before_deploy:
+    - echo "Travis before_deploy step (in the test stage) here."
+    - hostname
+    - pwd
+deploy:
+    provider: script
+    script: hostname && pwd && echo "OS-specific deploy prep here"
+    skip_cleanup: true
+
 jobs:
     include:
         - stage: test
@@ -8,38 +23,10 @@ jobs:
           sudo: false
           env: MY_ENV=linux_env
 
-          install:
-              - echo "Travis install step here."
-              - ./travis-script.sh
-          script:
-              - echo "Travis script step here."
-              - ./travis-script.sh
-          before_deploy:
-              - hostname
-              - pwd
-          deploy:
-            provider: script
-            script: hostname && pwd
-            skip_cleanup: true
-
         - stage: test
           os: osx
           osx_image: xcode10
           env: MY_ENV=osx_env
-
-          install:
-              - echo "Travis install step here."
-              - ./travis-script.sh
-          script:
-              - echo "Travis script step here."
-              - ./travis-script.sh
-          before_deploy:
-              - hostname
-              - pwd
-          deploy:
-            provider: script
-            script: hostname && pwd
-            skip_cleanup: true
 
         - stage: "Now deploy!"
           os: linux
@@ -48,6 +35,7 @@ jobs:
           install: echo "nothing to install"
           script: hostname && pwd
           before_deploy:
+              - echo "Travis before_deploy step (in the deploy stage) here."
               - pwd
               - hostname | tee deploy-preparation.txt
           deploy:
