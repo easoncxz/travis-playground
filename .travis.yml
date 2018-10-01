@@ -6,15 +6,26 @@ env:
     - MY_ENV=bar
 
 install:
-- echo "Travis install step here."
-- ./travis-script.sh
+    - echo "Travis install step here."
+    - ./travis-script.sh
+
 script:
-- echo "Travis script step here."
-- ./travis-script.sh
+    - echo "Travis script step here."
+    - ./travis-script.sh
+
+before_deploy:
+    - hostname
+    - pwd
+
+deploy:
+  provider: script
+  script: hostname && pwd
+  skip_cleanup: true
 
 jobs:
     include:
         - stage: "Now deploy!"
+          env: MY_ENV=deploying
           script: hostname && pwd
           before_deploy:
               - pwd
