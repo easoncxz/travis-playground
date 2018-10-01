@@ -4,14 +4,12 @@ language: minimal
 jobs:
     include:
         - stage: test
-          matrix:
-              include:
-                  - os: linux
-                    sudo: false
-                    env: MY_ENV=linux_env
-                  - os: osx
-                    osx_image: xcode10
-                    env: MY_ENV=osx_env
+          os:
+              - linux
+              - osx
+          env:
+              - MY_ENV=foo
+              - MY_ENV=bar
 
           install:
               - echo "Travis install step here."
