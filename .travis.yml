@@ -1,5 +1,5 @@
 
-language: generic
+language: minimal
 
 env:
     - MY_ENV=foo
@@ -17,5 +17,5 @@ before_deploy:
     - hostname | tee deploy-preparation.txt
 
 deploy:
-    - provider: script
-    - script: ./travis-deploy.sh deploy-preparation.txt
+    provider: script
+    script: ./travis-deploy.sh deploy-preparation.txt
