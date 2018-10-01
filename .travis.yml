@@ -7,7 +7,7 @@ env:
 
 jobs:
     include:
-        - stage: "Tests here!"
+        - stage: "test"
           install:
             - echo "Travis install step here."
             - ./travis-script.sh
@@ -15,7 +15,7 @@ jobs:
             - echo "Travis script step here."
             - ./travis-script.sh
         - stage: "Now deploy!"
-          script: true
+          script: hostname && pwd
           before_deploy:
               - pwd
               - hostname | tee deploy-preparation.txt
