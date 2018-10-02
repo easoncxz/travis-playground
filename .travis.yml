@@ -1,6 +1,10 @@
 
 language: minimal
 
+env:
+    - MY_VER=v1
+    - MY_VER=v2
+
 install:
     - echo "Travis install step here."
     - ./travis-script.sh
