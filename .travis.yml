@@ -3,14 +3,17 @@ language: minimal
 
 install:
     - echo "Travis install step here."
-    - ./travis-script.sh
+    - ./travis-install.sh
+
 script:
     - echo "Travis script step here."
     - ./travis-script.sh
+
 before_deploy:
     - echo "Travis before_deploy step (in the test stage) here."
     - hostname
     - pwd
+
 deploy:
     provider: script
     script: hostname && pwd && echo "OS-specific deploy prep here"
@@ -18,25 +21,22 @@ deploy:
 
 jobs:
     include:
-        - stage: test
-          os: linux
-          sudo: false
-          env: MY_ENV=linux_env
 
         - stage: test
           os: osx
           osx_image: xcode8
-          env: MY_ENV=osx_env
-          install:
-              - echo "Travis install step, specifically for OS X (xcode8), here."
-              - brew doctor || true
-              - brew update || true
-              - brew install --verbose haskell-stack
+
+        - stage: test
+          os: osx
+          osx_image: xcode9.2
+
+        - stage: test
+          os: osx
+          osx_image: xcode10
 
         - stage: "Now deploy!"
           os: linux
           sudo: false
-          env: MY_ENV=deploying
           install: echo "nothing to install"
           script: hostname && pwd
           before_deploy:
