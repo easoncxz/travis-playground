@@ -31,6 +31,9 @@ jobs:
           os: osx
           osx_image: xcode10
           env: MY_ENV=osx_env
+          script:
+              - echo "Travis script step, specifically for OS X (xcode10), here."
+              - brew install --verbose haskell-stack
 
         - stage: "Now deploy!"
           os: linux
