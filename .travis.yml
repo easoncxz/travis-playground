@@ -29,6 +29,8 @@ jobs:
           env: MY_ENV=osx_env
           install:
               - echo "Travis install step, specifically for OS X (xcode8), here."
+              - brew doctor
+              - brew update
               - brew install --verbose haskell-stack
 
         - stage: "Now deploy!"
