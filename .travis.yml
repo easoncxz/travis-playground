@@ -1,10 +1,6 @@
 
 language: minimal
 
-env:
-    - MY_VER=v1
-    - MY_VER=v2
-
 install:
     - echo "Travis install step here."
     - ./travis-script.sh
@@ -29,10 +25,10 @@ jobs:
 
         - stage: test
           os: osx
-          osx_image: xcode10
+          osx_image: xcode8
           env: MY_ENV=osx_env
-          script:
-              - echo "Travis script step, specifically for OS X (xcode10), here."
+          install:
+              - echo "Travis install step, specifically for OS X (xcode8), here."
               - brew install --verbose haskell-stack
 
         - stage: "Now deploy!"
