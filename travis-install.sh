@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env bash --login
 
 set -e  # fail fast
 set -x  # echo on
