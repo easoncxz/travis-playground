@@ -4,7 +4,9 @@ language: generic
 install:
     - uname -a
     - sw_vers -productVersion || echo 'Not sure'
+    - rvm version
     - rvm get stable
+    - rvm version
     - rvm use "$(cat .ruby-version)" --install
     - which -a ruby
     - which -a gem
