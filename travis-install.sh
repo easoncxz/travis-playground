@@ -1,4 +1,4 @@
-#!/usr/bin/env bash --login
+#!/usr/bin/env bash
 
 set -e  # fail fast
 set -x  # echo on
@@ -14,12 +14,12 @@ set -x  # echo on
 #gpg --keyserver hkp://pgp.mit.edu --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
 #
 ## ... so that we can verify the new RVM binary when we download it, ...
-rvm get stable
+#rvm get stable
 
 # ... so that we can have a version of Ruby that works with homebrew_automation, ...
 # rvm osx-ssl-certs update all    # https://github.com/rubygems/rubygems.org/issues/613
-rvm install "$(cat .ruby-version)"
-rvm use  "$(cat .ruby-version)"
+#rvm install "$(cat .ruby-version)"
+#rvm use  "$(cat .ruby-version)"
 
 
 which -a ruby
@@ -28,6 +28,7 @@ ruby --version
 gem --version
 
 gem install homebrew_automation -v 0.0.8
+homebrew_automation.rb help
 
 brew doctor || true
 brew update || true

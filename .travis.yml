@@ -1,5 +1,8 @@
 
-language: generic
+language: ruby
+
+rvm:
+    - 2.5.1
 
 install:
     - echo "Travis install step here."
