@@ -8,6 +8,10 @@ hostname
 whoami
 pwd
 
+which -a ruby
+which -a gem
+ruby --version
+gem --version
+
 brew doctor || true
 brew update || true
-brew install --verbose haskell-stack

@@ -1,5 +1,5 @@
 
-language: minimal
+language: ruby
 
 install:
     - echo "Travis install step here."
