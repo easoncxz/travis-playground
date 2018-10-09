@@ -4,6 +4,7 @@ language: generic
 install:
     - uname -a
     - sw_vers -productVersion || echo 'Not sure'
+    - brew --version
     - rvm version
     - rvm get stable
     - rvm version
