@@ -1,5 +1,5 @@
 
-language: ruby
+language: generic
 
 install:
     - echo "Travis install step here."
