@@ -2,7 +2,6 @@
 language: ruby
 
 install:
-    - echo "Travis install step here."
     - uname -a
     - sw_vers -productVersion || echo 'Not sure'
     - which -a ruby
