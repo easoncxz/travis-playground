@@ -1,29 +1,26 @@
 
 language: ruby
 
-rvm:
-    - 2.5.1
-
 install:
     - echo "Travis install step here."
-    - ./travis-install.sh
+    - uname -a
+    - sw_vers -productVersion || echo 'Not sure'
+    - which -a ruby
+    - which -a gem
+    - ruby --version
+    - gem --version
+    - gem install homebrew_automation -v 0.0.8
 
 script:
     - echo "Travis script step here."
-    - ./travis-script.sh
-
-before_deploy:
-    - echo "Travis before_deploy step (in the test stage) here."
-    - hostname
-    - pwd
-
-deploy:
-    provider: script
-    script: hostname && pwd && echo "OS-specific deploy prep here"
-    skip_cleanup: true
+    - homebrew_automation.rb help
 
 jobs:
     include:
+
+        - stage: test
+          os: osx
+          osx_image: xcode6.4
 
         - stage: test
           os: osx
@@ -36,17 +33,3 @@ jobs:
         - stage: test
           os: osx
           osx_image: xcode10
-
-        - stage: "Now deploy!"
-          os: linux
-          sudo: false
-          install: echo "nothing to install"
-          script: hostname && pwd
-          before_deploy:
-              - echo "Travis before_deploy step (in the deploy stage) here."
-              - pwd
-              - hostname | tee deploy-preparation.txt
-          deploy:
-              provider: script
-              script: ./travis-deploy.sh deploy-preparation.txt
-              skip_cleanup: true
