@@ -6,18 +6,18 @@ install:
     - sw_vers -productVersion || echo 'Not sure'
 
     - brew --version
-    - brew update || true
-    - brew --version
 
     - rvm version
     - rvm get stable
     - rvm version
 
+    - cat .ruby-version
     - rvm use "$(cat .ruby-version)" --install
     - which -a ruby
     - which -a gem
     - ruby --version
     - gem --version
+    - brew --version
 
     - gem install homebrew_automation -v 0.0.8
 
