@@ -14,7 +14,7 @@ set -x  # echo on
 #gpg --keyserver hkp://pgp.mit.edu --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
 #
 ## ... so that we can verify the new RVM binary when we download it, ...
-#rvm get stable
+rvm get stable
 
 # ... so that we can have a version of Ruby that works with homebrew_automation, ...
 # rvm osx-ssl-certs update all    # https://github.com/rubygems/rubygems.org/issues/613
