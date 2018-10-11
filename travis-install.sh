@@ -23,3 +23,5 @@ ruby --version
 gem --version
 
 gem install homebrew_automation -v 0.0.8
+
+du -sh "$HOME/.rvm"
