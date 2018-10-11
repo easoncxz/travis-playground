@@ -10,21 +10,25 @@ script:
 jobs:
     include:
 
-        - stage: test
-          os: osx
-          osx_image: xcode6.4
+      # - stage: test
+      # os: osx
+      # osx_image: xcode6.4
+      # 
+      # - stage: test
+      # os: osx
+      # osx_image: xcode8
+      # 
+      # - stage: test
+      # os: osx
+      # osx_image: xcode9.2
+      # 
+      # - stage: test
+      # os: osx
+      # osx_image: xcode10
 
         - stage: test
           os: osx
           osx_image: xcode8
-
-        - stage: test
-          os: osx
-          osx_image: xcode9.2
-
-        - stage: test
-          os: osx
-          osx_image: xcode10
 
         - stage: "After the cache is warm"
           os: osx
