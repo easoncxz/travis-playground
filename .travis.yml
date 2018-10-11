@@ -4,8 +4,7 @@ language: generic
 cache:
     directories:
         - $HOME/.rvm
-    timeout:
-        - 1000
+    timeout: 1000
 
 install:
     - source travis-install.sh
