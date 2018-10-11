@@ -2,7 +2,7 @@
 language: generic
 
 cache:
-    directory:
+    directores:
         - $HOME/.rvm
     timeout:
         - 1000
