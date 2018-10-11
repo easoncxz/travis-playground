@@ -7,7 +7,7 @@ uname -a
 sw_vers -productVersion || echo 'Not sure'
 
 brew --version
-brew docter || true
+brew doctor || true
 brew upgrade || true
 brew --version
 
