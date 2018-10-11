@@ -25,3 +25,15 @@ jobs:
         - stage: test
           os: osx
           osx_image: xcode10
+
+        - stage: "After the cache is warm"
+          os: osx
+          osx_image: xcode8
+          install:
+              - cat .ruby-version
+              - rvm use "$(cat .ruby-version)" --install
+              - which -a ruby
+              - which -a gem
+              - ruby --version
+              - gem --version
+              - gem install homebrew_automation -v 0.0.8
