@@ -14,6 +14,7 @@ brew --version
 rvm version
 rvm get stable
 rvm version
+rvm list
 
 cat .ruby-version
 rvm use "$(cat .ruby-version)" --install

@@ -3,7 +3,8 @@ language: generic
 
 cache:
     directories:
-        - $HOME/.rvm
+        - $HOME/.rvm/rubies/ruby-2.5.1
+        - $HOME/.rvm/gems/ruby-2.5.1
     timeout: 1000
 
 install:
