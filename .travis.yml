@@ -7,7 +7,7 @@ cache:
     timeout: 1000
 
 install:
-    - source travis-install.sh
+    - bash --login travis-install.sh
 
 script:
     - homebrew_automation.rb help
