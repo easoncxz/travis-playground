@@ -2,7 +2,7 @@
 language: generic
 
 install:
-    - ./travis-install.sh
+    - source travis-install.sh
 
 script:
     - homebrew_automation.rb help
