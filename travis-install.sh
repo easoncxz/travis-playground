@@ -15,6 +15,8 @@ rvm version
 rvm get stable
 rvm version
 rvm list
+comm -23 <(rvm list strings) <(cat .ruby-version) | xargs -n 1 rvm uninstall
+rvm list
 
 cat .ruby-version
 rvm use "$(cat .ruby-version)" --install
