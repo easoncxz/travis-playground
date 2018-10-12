@@ -11,20 +11,21 @@ brew doctor || true
 brew upgrade || true
 brew --version
 
-#function with_echo {
-#    echo "$*";
-#    # Crucially, without quotes:
-#    $*
-#}
-#
-#set +x  # RVM is really too noisy
-#with_echo rvm version
-#with_echo rvm get stable
-#with_echo rvm version
-#
-#with_echo rvm list
-#with_echo rvm disk-usage all
-#
+set +x  # RVM is really too noisy
+function with_echo {
+    echo "$*";
+    # Crucially, without quotes:
+    $*
+}
+with_echo rvm version
+with_echo rvm get stable
+with_echo rvm version
+
+with_echo rvm list
+with_echo rvm disk-usage all
+
+set -x
+
 #with_echo cat .ruby-version
 #with_echo rvm use "$(cat .ruby-version)" --install
 #
