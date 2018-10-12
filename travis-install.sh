@@ -7,8 +7,8 @@ uname -a
 sw_vers -productVersion || echo 'Not sure'
 
 brew --version
-brew doctor || true
-brew upgrade || true
+time brew doctor || true
+time brew upgrade || true
 brew --version
 
 set +x  # RVM is really too noisy
@@ -18,7 +18,7 @@ function with_echo {
     $*
 }
 with_echo rvm version
-with_echo rvm get stable
+with_echo time rvm get stable
 with_echo rvm version
 
 with_echo rvm list
@@ -49,5 +49,5 @@ set -x
 
 # Install Stack binary
 which -a stack || ( curl -sSL https://get.haskellstack.org/ | sh )
-stack --resolver 'lts-12.12' install hlint
-du -h -d 2 ~/.stack
+time stack --resolver 'lts-12.12' install hlint
+du -h -d 3 ~/.stack
