@@ -19,6 +19,7 @@ function with_echo {
 }
 with_echo rvm version
 with_echo time rvm get stable
+with_echo rvm reload
 with_echo rvm version
 
 with_echo rvm list
