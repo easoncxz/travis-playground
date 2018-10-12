@@ -3,17 +3,14 @@ language: generic
 
 cache:
     directories:
-        - $HOME/.rvm
-    timeout: 1000
+        - $HOME/.stack
+    timeout: 1200
 
 install:
     - bash --login travis-install.sh
-    - rvm reload
-    - rvm current
-    - rvm use "$(cat .ruby-version)"
 
 script:
-    - homebrew_automation.rb help
+    - hlint
 
 jobs:
     include:
@@ -41,14 +38,3 @@ jobs:
         - stage: "After the cache is warm"
           os: osx
           osx_image: xcode8
-          install:
-              - cat .ruby-version
-              - rvm reload
-              - rvm use "$(cat .ruby-version)" --install
-              - which -a ruby
-              - which -a gem
-              - ruby --version
-              - gem --version
-              - gem install homebrew_automation -v 0.0.8
-          script:
-              - homebrew_automation.rb help
