@@ -48,10 +48,6 @@ set -x
 #gem install homebrew_automation -v 0.0.8
 
 # Install Stack binary
-if [ -d ~/.stack ]
-then
-    rm -rf ~/.stack
-fi
 which -a stack || ( curl -sSL https://get.haskellstack.org/ | sh )
 stack --resolver 'lts-12.12' install hlint
 du -h -d 2 ~/.stack
