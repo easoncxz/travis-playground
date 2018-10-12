@@ -8,6 +8,9 @@ cache:
 
 install:
     - bash --login travis-install.sh
+    - rvm reload
+    - rvm current
+    - rvm use "$(cat .ruby-version)"
 
 script:
     - homebrew_automation.rb help
