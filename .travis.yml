@@ -1,16 +1,18 @@
 
 language: ruby
 
-cache:
-    directories:
-        - $HOME/.rvm
-    timeout: 1200
+#cache:
+#    directories:
+#        - $HOME/.rvm
+#    timeout: 1200
 
 install:
-    - gem install homebrew_automation -v 0.0.8
+    - which -a ruby
+    - which -a gem
 
 script:
-    - homebrew_automation.rb --help
+    - ruby --version
+    - gem --version
 
 jobs:
     include:
